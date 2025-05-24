@@ -142,13 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('shrek-interactions-detail', JSON.stringify(interactions));
         
         console.log('Interacción registrada:', type, value);
-    }
-
-    async function addVisitMetrics() {
+    }    async function addVisitMetrics() {
         try {
-            const response = await fetch('https://api.countapi.xyz/get/pagina-shrek-brad-ucsp/visits');
+            const response = await fetch('https://hits.sh/caleb19-666.github.io/pagina-shrek.json');
             const data = await response.json();
-            const visitCount = data.value || 0;
+            const visitCount = data.count || 0;
 
             addMetaTag('site:visits', visitCount.toString());
             addMetaTag('site:popularity', visitCount > 100 ? 'high' : visitCount > 50 ? 'medium' : 'growing');

@@ -7,31 +7,70 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     setupEasterEgg();
-      async function initVisitCounter() {
-        const contadorElement = document.getElementById('contador');
+      async function initVisitCounter() {        const contadorElement = document.getElementById('contador');
+
+        contadorElement.textContent = '...';
         
         try {
-            const response = await fetch('https://api.countapi.xyz/hit/pagina-shrek-brad-ucsp/visits');
-            const data = await response.json();
+            console.log('🔄 Conectando al contador global (hits.sh)...');
+            //uso de hits.sh 
+            const response = await fetch('https://hits.sh/caleb19-666.github.io/pagina-shrek.json');
             
-            if (data && data.value) {
-                contadorElement.textContent = data.value;
-                console.log('Contador global actualizado:', data.value);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            console.log('📡 Respuesta de hits.sh:', data);
+            
+            if (data && typeof data.count === 'number') {
+                contadorElement.textContent = data.count;
+                console.log('✅ Contador global funcionando:', data.count);
+
+                localStorage.setItem('last-global-count', data.count);
             } else {
-                throw new Error('Respuesta inválida de CountAPI');
+                throw new Error('Respuesta inválida de hits.sh: ' + JSON.stringify(data));
             }
             
         } catch (error) {
-            console.error('Error al obtener contador global:', error);
-
-            let visits = localStorage.getItem('shrek-page-visits');
-            if (!visits) {
-                visits = 1;
-            } else {
-                visits = parseInt(visits) + 1;
+            console.error('❌ Error al obtener contador global:', error);
+            console.log('🔄 Intentando con contador alternativo...');
+            
+            try {
+                const fallbackResponse = await fetch('https://count.getloli.com/get/@pagina-shrek-brad-ucsp?theme=rule34');
+                if (fallbackResponse.ok) {
+                    const svgText = await fallbackResponse.text();
+                    const countMatch = svgText.match(/(\d+)/);
+                    if (countMatch) {
+                        const count = parseInt(countMatch[1]);
+                        contadorElement.textContent = count;
+                        console.log('✅ Contador alternativo funcionando:', count);
+                        localStorage.setItem('last-global-count', count);
+                        return;
+                    }
+                }
+            } catch (fallbackError) {
+                console.error('❌ Error en contador alternativo:', fallbackError);
             }
-            localStorage.setItem('shrek-page-visits', visits);
-            contadorElement.textContent = visits + ' (local)';
+            
+            const lastGlobalCount = localStorage.getItem('last-global-count');
+            
+            if (lastGlobalCount) {
+                const estimatedCount = parseInt(lastGlobalCount) + 1;
+                contadorElement.textContent = estimatedCount + ' (aprox)';
+                console.log('📊 Usando estimación basada en último contador:', estimatedCount);
+            } else {
+
+                let visits = localStorage.getItem('shrek-page-visits');
+                if (!visits) {
+                    visits = 1;
+                } else {
+                    visits = parseInt(visits) + 1;
+                }
+                localStorage.setItem('shrek-page-visits', visits);
+                contadorElement.textContent = visits + ' (local)';
+                console.log('🏠 Usando contador local:', visits);
+            }
         }
 
         setTimeout(() => {
@@ -166,5 +205,31 @@ document.addEventListener('DOMContentLoaded', function() {
         Timestamp: ${new Date().toLocaleString()}`);
     }
 
-    setTimeout(showStats, 2000);
+    setTimeout(showStats, 2000); 
+    window.testCounter = async function() {
+        console.log('🧪 Probando conexión al contador...');
+        try {
+            const response = await fetch('https://hits.sh/caleb19-666.github.io/pagina-shrek.json');
+            const data = await response.json();
+            console.log('✅ Contador actual (sin incrementar):', data.count);
+            return data.count;
+        } catch (error) {
+            console.error('❌ Error en la prueba:', error);
+            return null;
+        }
+    };
+
+    window.incrementCounter = async function() {
+        console.log('➕ Incrementando contador...');
+        try {
+            const response = await fetch('https://hits.sh/caleb19-666.github.io/pagina-shrek.json');
+            const data = await response.json();
+            console.log('✅ Valor actual:', data.count);
+            document.getElementById('contador').textContent = data.count;
+            return data.count;
+        } catch (error) {
+            console.error('❌ Error al verificar contador:', error);
+            return null;
+        }
+    };
 });
