@@ -1,0 +1,422 @@
+/* 
+   Archivo: cv.css
+   Descripción: Estilos para la página de CV estilo Shrek
+*/
+
+/* Estilos para la sección de CV */
+.cv-section {
+    background-color: white;
+    padding: 60px 20px;
+}
+
+/* Encabezado del CV */
+.cv-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.cv-photo {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.cv-profile-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid var(--shrek-green);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.cv-profile-photo:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cv-intro {
+    flex: 3;
+    min-width: 300px;
+}
+
+.cv-intro h2 {
+    font-size: 2.5rem;
+    color: var(--shrek-dark-green);
+    margin-bottom: 5px;
+}
+
+.cv-title {
+    font-size: 1.3rem;
+    color: var(--swamp-brown);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.cv-contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cv-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--shrek-light-green);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+}
+
+.ci-icon {
+    font-size: 1.2rem;
+}
+
+.cv-contact-item a {
+    color: var(--swamp-brown);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cv-contact-item a:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+/* Cita del CV */
+.cv-quote {
+    background-color: var(--shrek-light-green);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+    border-left: 5px solid var(--accent-orange);
+}
+
+.cv-quote blockquote {
+    font-size: 1.2rem;
+    color: var(--swamp-brown);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Contenedor principal del CV */
+.cv-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+/* Barra lateral del CV */
+.cv-sidebar {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Contenido principal del CV */
+.cv-main {
+    flex: 3;
+    min-width: 300px;
+}
+
+/* Cajas de sección */
+.cv-section-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--shrek-light-green);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-section-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--shrek-green);
+}
+
+.cv-section-title {
+    font-size: 1.5rem;
+    color: var(--swamp-brown);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.cv-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--shrek-green);
+    border-radius: 5px;
+}
+
+.cv-text {
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+/* Estilos para habilidades */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-name {
+    font-weight: 500;
+    color: var(--swamp-brown);
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-icon-container {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.skill-icon-container:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.skill-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, var(--shrek-green), var(--shrek-dark-green));
+    border-radius: 5px;
+    position: relative;
+    animation: skill-fill 2s ease;
+}
+
+@keyframes skill-fill {
+    0% {width: 0%;}
+    100% {width: 100%;}
+}
+
+/* Lista de idiomas */
+.language-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.language-list li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.language-list li::before {
+    content: '🌐';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Intereses */
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.interest-item {
+    background-color: var(--shrek-light-green);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+    background-color: var(--shrek-green);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline para educación y experiencia */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    background-color: var(--shrek-light-green);
+    border-radius: 5px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-dot {
+    width: 15px;
+    height: 15px;
+    background-color: var(--shrek-dark-green);
+    border-radius: 50%;
+    position: absolute;
+    left: -36px;
+    top: 5px;
+    border: 3px solid white;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    color: var(--shrek-dark-green);
+    margin-bottom: 5px;
+}
+
+.timeline-content h5 {
+    color: var(--swamp-brown);
+    font-weight: normal;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+/* Proyectos destacados */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.project-item {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border-left: 5px solid var(--shrek-green);
+    transition: all 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateX(5px);
+    background-color: var(--shrek-light-green);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.project-item h4 {
+    color: var(--swamp-brown);
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 15px;
+    color: var(--swamp-brown);
+}
+
+/* Botón de descarga */
+.cv-download {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background-color: var(--shrek-dark-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: var(--swamp-brown);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.download-icon {
+    font-size: 1.5rem;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .cv-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .cv-contact-info {
+        justify-content: center;
+    }
+    
+    .cv-section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .cv-contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}

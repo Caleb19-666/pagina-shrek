@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página personal estilo Shrek - Universidad Católica San Pablo">
+    <meta name="keywords" content="Brad Caleb Lopez, UCSP, Shrek, Arequipa, Perú">
+    <title>El Pantano de Brad Caleb Lopez | UCSP</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/animations.css">    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+</head>
+<body>
+    <div class="swamp-container">
+        <div id="visitas-counter" class="hidden-counter"></div>
+
+        <header class="header">
+            <div class="logo-container">
+                <img src="./images/shrek.png" alt="Logo Shrek" class="shrek-logo">
+                <h1>El Pantano de <span id="nombre-amigo">Brad Caleb Lopez</span></h1>
+            </div>            <nav class="navigation">
+                <ul>
+                    <li>
+                        <a href="#sobre-mi" class="active">Sobre Mí</a>
+                        <div class="sobre-mi-bubble"></div>
+                    </li>
+                    <li><a href="#pasatiempos">Pasatiempos</a></li>
+                    <li><a href="#universidad">Mi Universidad</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2>¡Bienvenidos a mi Pantano!</h2>
+                    <p>Como diría Shrek: "Las cebollas tienen capas, los ogros tienen capas"</p>
+                </div>                <div class="hero-image">
+                    <img src="./images/image0.gif" alt="Shrek Animado" class="bounce-animation">
+                </div>
+            </section>
+
+            <section id="sobre-mi" class="section sobre-mi">
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="profile-container">                    <div class="profile-image">
+                        <img src="./images/profile.png" alt="Brad Caleb Lopez" class="profile-photo">
+                    </div>
+                    <div class="profile-info">
+                        <h3>¡Hola! Soy <span id="nombre-completo">Brad Caleb López Parizaca</span></h3>
+                        <p>Estudiante de <span id="carrera">Administración de Negocios</span> en la Universidad Católica San Pablo de Arequipa, Perú.</p>
+                        <p>Como Shrek, me gusta mi privacidad y tengo muchas capas por descubrir. A diferencia de él, me encanta socializar y compartir conocimientos con los demás.</p>                        <div class="fun-fact">
+                            <div class="fun-fact-bg">
+                                <img src="./images/image0.gif" alt="Fondo animado" class="fun-fact-bg-img">
+                            </div>
+                            <h4>Dato Curioso:</h4>
+                            <p id="dato-curioso">¡Puedo analizar estados financieros y crear planes de negocio tan eficientes que hasta Shrek quedaría impresionado con mi gestión del pantano!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pasatiempos" class="section pasatiempos">
+                <h2 class="section-title">Mis Pasatiempos</h2>                <div class="hobbies-container">                    <!-- Pasatiempo 1 -->
+                    <div class="hobby-card">
+                        <div class="hobby-image">
+                            <img src="./images/image2.jpg" alt="Emprendimiento" class="hobby-img">
+                        </div>                        <h3 id="pasatiempo1">Emprendimiento Digital</h3>
+                        <p id="descripcion-pasatiempo1">Desarrollando ideas de negocio innovadoras y estudiando casos de éxito empresarial en el mercado digital.</p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <div class="hobby-image">
+                            <img src="./images/image3.jpg" alt="Análisis" class="hobby-img">
+                        </div>                        <h3 id="pasatiempo2">Análisis de Mercados</h3>
+                        <p id="descripcion-pasatiempo2">Estudiando tendencias económicas y analizando oportunidades de inversión en diferentes sectores empresariales.</p>
+                    </div>
+                    
+                    <div class="hobby-card">
+                        <div class="hobby-image">
+                            <img src="./images/image4.jpg" alt="Liderazgo" class="hobby-img">
+                        </div>                        <h3 id="pasatiempo3">Liderazgo Estudiantil</h3>
+                        <p id="descripcion-pasatiempo3">Participando en organizaciones estudiantiles y desarrollando habilidades de liderazgo a través de proyectos colaborativos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="universidad" class="section universidad">
+                <h2 class="section-title">Mi Universidad</h2>
+                <div class="universidad-container">                    <div class="universidad-logo">
+                        <img src="./images/ucsp.png" alt="Logo UCSP" class="ucsp-logo">
+                    </div>
+                    <div class="universidad-info">
+                        <h3>Universidad Católica San Pablo</h3>                        <p>Ubicada en la hermosa ciudad de Arequipa, Perú, la UCSP es una institución educativa de prestigio donde estoy formándome profesionalmente.</p>                        <p>Mi experiencia en la universidad ha sido enriquecedora, participando en diversos proyectos y actividades como:</p>                        <div class="universidad-imagen">
+                            <img src="./images/image5.jpg" alt="Mi experiencia en UCSP" class="uni-img">
+                        </div>
+                        <ul id="actividades-universidad">
+                            <li>Participación en proyectos de investigación académica</li>
+                            <li>Colaboración en actividades estudiantiles y eventos universitarios</li>
+                            <li>Desarrollo de habilidades técnicas y sociales</li>
+                        </ul>
+                        <a href="https://ucsp.edu.pe/" target="_blank" class="ucsp-button">Visitar Sitio Web UCSP</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contacto" class="footer">
+            <div class="footer-content">                <div class="footer-info">
+                    <h3>Explorar Más</h3>
+                    <p><a href="cv.html">Ver mi CV completo</a></p>
+                    <p><a href="galeria.html">Explorar galería de fotos</a></p>
+                    <p><a href="contacto.html">Enviarme un mensaje</a></p>                    <p><strong>Email:</strong> <span id="email-contacto">brad.lopez@ucsp.edu.pe</span></p>
+                    <p><strong>Teléfono:</strong> <span id="telefono-contacto">+51 958 791 269</span></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/brad-caleb-lopez-parizaca/" id="linkedin-url">linkedin.com/in/brad-caleb-lopez-parizaca</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Caleb19-666" id="github-url">github.com/Caleb19-666</a></p>
+                </div>                <div class="footer-credits">
+                    <p>© <span id="current-year">2025</span> - Desarrollado con la sabiduría de Shrek</p>
+                    <div class="footer-easter-egg" id="footer-easter-egg">
+                        <img src="./images/image3.jpg" alt="Shrek easter egg" class="easter-egg-img">
+                    </div>
+                    <p class="visitor-counter">Visitas: <span id="contador">0</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>    <script src="./js/script.js"></script>
+    <script src="./js/seo.js"></script>
+    <script src="./js/sounds.js"></script>
+</body>
+</html>

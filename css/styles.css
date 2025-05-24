@@ -1,0 +1,678 @@
+/* 
+   Archivo: styles.css
+   Descripción: Estilos principales para la página web estilo Shrek 50
+*/
+
+/*Variables de colores para Shrek */
+:root {
+    --shrek-green: #8bc34a;
+    --shrek-dark-green: #558b2f;
+    --shrek-light-green: #c5e1a5;
+    --swamp-brown: #5d4037;
+    --swamp-light: #d7ccc8;
+    --accent-orange: #ff9800;
+    --text-dark: #212121;
+    --text-light: #f5f5f5;
+    --ucsp-blue: #003b70;
+}
+
+/*Modo Shrek activado por Easter Egg */
+.shrek-mode {
+    transition: all 0.5s ease;
+    animation: shrek-pulse 5s ease;
+}
+
+@keyframes shrek-pulse {
+    0% { filter: saturate(1); }
+    25% { filter: saturate(1.5) hue-rotate(20deg); }
+    50% { filter: saturate(2) hue-rotate(40deg); }
+    75% { filter: saturate(1.5) hue-rotate(20deg); }
+    100% { filter: saturate(1); }
+}
+
+/* Estilos generales*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--shrek-light-green);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10C20 20, 40 20, 50 10C60 0, 80 0, 90 10C100 20, 100 40, 90 50C80 60, 80 80, 90 90C80 100, 60 100, 50 90C40 80, 20 80, 10 90C0 100, 0 80, 10 70C20 60, 20 40, 10 30C0 20, 0 0, 10 10Z" fill="none" stroke="%23558b2f22" stroke-width="2"/></svg>');
+    background-size: 300px;
+}
+
+.swamp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/image0.gif');
+    background-size: 200px;
+    background-repeat: repeat;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.swamp-container::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background-image: url('../images/image3.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.06;
+    z-index: -1;
+    animation: float-right 30s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes float-right {
+    0% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-100px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0); }
+}
+
+.hidden-counter {
+    display: none;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: var(--shrek-dark-green);
+    color: var(--text-light);
+    border-bottom: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navigation li {
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.shrek-logo {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--swamp-light);
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.navigation a:hover {
+    background-color: var(--shrek-green);
+    color: var(--text-dark);
+    box-shadow: none;
+    transform: none;
+}
+
+.navigation a.active {
+    background-color: #FF9800;
+    color: var(--text-dark);
+    box-shadow: none;
+    transform: none;
+    position: relative;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.navigation a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #FF9800;
+}
+
+.sobre-mi-bubble {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #FF9800;
+    border-radius: 50%;
+    top: -10px;
+    right: 10px;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    background: linear-gradient(135deg, var(--shrek-green), var(--shrek-dark-green));
+    background-image: url('../images/raw.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    color: var(--text-light);
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.hero-content {
+    padding: 0 30px;
+    max-width: 60%;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-height: 200px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.section {
+    padding: 60px 20px;
+    margin: 30px 0;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M75,10 C90,10 90,25 90,40 C90,55 75,55 60,55 C45,55 45,70 45,85 C45,100 30,100 15,100 C0,100 0,85 0,70 C0,55 15,55 30,55 C45,55 45,40 45,25 C45,10 60,10 75,10 Z" fill="%238bc34a22" stroke="none"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: var(--swamp-brown);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: var(--shrek-green);
+    border-radius: 10px;
+}
+
+/*Sección Sobre Mí */
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.profile-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-placeholder {
+    width: 300px;
+    height: 300px;
+    background-color: var(--swamp-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--swamp-brown);
+    border: 8px solid var(--shrek-green);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--shrek-green);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--pasto-light);
+}
+
+.profile-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.profile-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--shrek-dark-green);
+}
+
+.fun-fact {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: rgba(197, 225, 165, 0.8);
+    border-radius: 10px;
+    border-left: 5px solid var(--accent-orange);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.fun-fact-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.15;
+    overflow: hidden;
+}
+
+.fun-fact-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+}
+
+.fun-fact h4 {
+    color: var(--swamp-brown);
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/*Sección Pasatiempos */
+.hobbies-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.hobby-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--shrek-light-green);
+}
+
+.hobby-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--shrek-green);
+}
+
+.hobby-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--shrek-dark-green);
+}
+
+.hobby-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.hobby-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hobby-card:hover .hobby-img {
+    transform: scale(1.1);
+}
+
+.hobby-card h3 {
+    color: var(--swamp-brown);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Sección Universidad */
+.universidad-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.universidad-logo {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    background-color: var(--ucsp-blue);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.ucsp-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 130px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.universidad-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.universidad-info h3 {
+    color: var(--ucsp-blue);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.universidad-imagen {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.uni-img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.uni-img:hover {
+    transform: scale(1.02);
+}
+
+.universidad-info ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.universidad-info li {
+    margin-bottom: 10px;
+}
+
+.ucsp-button {
+    display: inline-block;
+    background-color: var(--ucsp-blue);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.ucsp-button:hover {
+    background-color: #00264a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--swamp-brown);
+    color: var(--text-light);
+    padding: 40px 20px;
+    border-top: 5px solid var(--shrek-dark-green);
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background-image: url('../images/shrek.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="15" viewBox="0 0 100 15" xmlns="http://www.w3.org/2000/svg"><path d="M0 15 Q 25 -15 50 15 Q 75 -15 100 15" fill="none" stroke="%238bc34a44" stroke-width="2"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 100px 15px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.footer-credits {
+    flex: 1;
+    min-width: 300px;
+    text-align: right;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--shrek-light-green);
+}
+
+.footer a {
+    color: var(--shrek-light-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+.visitor-counter {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: var(--shrek-dark-green);
+    display: inline-block;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.footer-easter-egg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 15px 0;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    transform: scale(0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-easter-egg:hover {
+    opacity: 1;
+    transform: scale(1) rotate(10deg);
+}
+
+.easter-egg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*intentando el responsive*/
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    
+    .navigation ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .profile-container, 
+    .universidad-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-info, 
+    .universidad-info {
+        text-align: left;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-credits {
+        text-align: left;
+    }
+}

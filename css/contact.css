@@ -1,0 +1,272 @@
+/* 
+   Archivo: contact.css
+   Descripción: Estilos para la página de contacto estilo Shrek
+*/
+
+/* Estilos para la sección de contacto */
+.contact-section {
+    background-color: white;
+    padding: 60px 20px;
+}
+
+.contact-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    color: var(--swamp-brown);
+}
+
+/* Contenedor de contacto */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Formulario */
+.form-container {
+    flex: 3;
+    min-width: 300px;
+    padding: 30px;
+    background-color: var(--shrek-light-green);
+    border-radius: 15px;
+    position: relative;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--swamp-brown);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--shrek-green);
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.3);
+}
+
+.submit-button {
+    padding: 15px 25px;
+    background-color: var(--shrek-dark-green);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: var(--swamp-brown);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Información de contacto */
+.contact-info {
+    flex: 2;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--shrek-light-green);
+}
+
+.contact-card h3 {
+    color: var(--shrek-dark-green);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.contact-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--shrek-green);
+    border-radius: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    color: var(--shrek-dark-green);
+}
+
+.contact-detail h4 {
+    margin-bottom: 5px;
+    color: var(--swamp-brown);
+}
+
+.contact-detail a {
+    color: var(--shrek-dark-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-detail a:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+/* Cita de contacto */
+.contact-quote {
+    padding: 25px;
+    background-color: var(--shrek-light-green);
+    border-radius: 15px;
+    border-left: 5px solid var(--accent-orange);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-quote blockquote {
+    font-style: italic;
+    color: var(--swamp-brown);
+    font-size: 1.1rem;
+}
+
+.contact-quote cite {
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.contact-animation {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.contact-gif {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--shrek-green);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensaje de éxito */
+.form-success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--shrek-light-green);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+}
+
+.form-success.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hidden {
+    display: none;
+}
+
+.success-icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: var(--shrek-dark-green);
+    color: white;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.form-success h3 {
+    color: var(--swamp-brown);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.return-button {
+    padding: 12px 25px;
+    background-color: var(--swamp-brown);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.return-button:hover {
+    background-color: var(--shrek-dark-green);
+    transform: translateY(-3px);
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .form-container, 
+    .contact-info {
+        width: 100%;
+    }
+}

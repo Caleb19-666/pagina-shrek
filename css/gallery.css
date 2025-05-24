@@ -1,0 +1,206 @@
+/* 
+   Archivo: gallery.css
+   Descripción: Estilos para la galería de fotos estilo Shrek
+*/
+
+/* Estilos de la sección de galería */
+.gallery-section {
+    background-color: white;
+    padding: 60px 20px;
+}
+
+.gallery-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    color: var(--swamp-brown);
+}
+
+/* Divider animado */
+.gallery-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+.gallery-divider-line {
+    flex: 1;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--shrek-green), transparent);
+}
+
+.gallery-divider-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--shrek-green);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.divider-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+    50% { transform: scale(1.1); box-shadow: 0 5px 25px rgba(139, 195, 74, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+}
+
+/* Contenedor de la galería */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+/* Cada ítem de la galería */
+.gallery-item {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid var(--shrek-light-green);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--shrek-green);
+}
+
+/* Imágenes de la galería */
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+    transform: scale(1.1);
+}
+
+/* Placeholders para las imágenes */
+.placeholder {
+    background-color: var(--shrek-light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-text {
+    font-size: 1.5rem;
+    color: var(--swamp-brown);
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Pie de foto */
+.gallery-caption {
+    padding: 20px;
+    background-color: white;
+}
+
+.gallery-caption h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--shrek-dark-green);
+}
+
+.gallery-caption p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Cita inspiradora */
+.gallery-quote {
+    margin: 50px 0 20px;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--shrek-light-green);
+    border-radius: 15px;
+}
+
+.gallery-quote blockquote {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--swamp-brown);
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.gallery-quote blockquote::before,
+.gallery-quote blockquote::after {
+    content: '"';
+    font-size: 3rem;
+    color: var(--shrek-green);
+    position: absolute;
+    opacity: 0.5;
+}
+
+.gallery-quote blockquote::before {
+    top: -20px;
+    left: 0;
+}
+
+.gallery-quote blockquote::after {
+    bottom: -50px;
+    right: 0;
+}
+
+.gallery-quote cite {
+    display: block;
+    margin-top: 15px;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/*efecto al pasar el mouse */
+.gallery-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image::after {
+    opacity: 1;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}

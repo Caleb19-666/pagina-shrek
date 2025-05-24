@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto - Página personal estilo Shrek">
+    <meta name="keywords" content="Brad Caleb Lopez, UCSP, Shrek, Arequipa, Perú, Contacto">
+    <title>Contacto | El Pantano de Brad Caleb Lopez</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/contact.css">    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+</head>
+<body>
+    <div class="swamp-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="./images/shrek.png" alt="Logo Shrek" class="shrek-logo">
+                <h1>Contacto | <span id="nombre-amigo">Brad Caleb Lopez</span></h1>
+            </div>            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="index.html#universidad">UCSP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section contact-section">
+                <h2 class="section-title">¡Envíame un mensaje!</h2>
+                
+                <div class="contact-intro">
+                    <p>Si quieres ponerte en contacto conmigo, deja tu mensaje y te responderé lo antes posible. Como diría Shrek: "Mejor afuera que adentro", ¡así que no dudes en expresarte!</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="tu.email@ejemplo.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Asunto</label>
+                                <input type="text" id="subject" name="subject" placeholder="¿De qué quieres hablar?" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Tu mensaje para mí..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">Enviar Mensaje</button>
+                        </form>
+                        
+                        <div id="form-success" class="form-success hidden">
+                            <div class="success-icon">✓</div>
+                            <h3>¡Mensaje enviado!</h3>
+                            <p>Gracias por escribirme. Me pondré en contacto contigo pronto.</p>
+                            <button class="return-button" onclick="resetForm()">Enviar otro mensaje</button>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <h3>Información de Contacto</h3>
+                              <div class="contact-item">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-detail">
+                                    <h4>Email</h4>
+                                    <p id="email-contact">brad.lopez@ucsp.edu.pe</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-detail">
+                                    <h4>Teléfono</h4>
+                                    <p id="phone-contact">+51 958 791 269</p>
+                                </div>
+                            </div>
+                              <div class="contact-item">
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-detail">
+                                    <h4>LinkedIn</h4>
+                                    <p><a href="https://www.linkedin.com/in/brad-caleb-lopez-parizaca/" id="linkedin-contact">linkedin.com/in/brad-caleb-lopez-parizaca</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">💻</div>
+                                <div class="contact-detail">
+                                    <h4>GitHub</h4>
+                                    <p><a href="https://github.com/Caleb19-666" id="github-contact">github.com/Caleb19-666</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-detail">
+                                    <h4>Universidad</h4>
+                                    <p>Universidad Católica San Pablo<br>
+                                    Arequipa, Perú</p>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="contact-quote">
+                            <blockquote>
+                                "La mejor manera de resolver un problema es conversando"
+                                <cite>- El Burro (adaptado)</cite>
+                            </blockquote>
+                            <div class="contact-animation">
+                                <img src="./images/image0.gif" alt="Animación divertida" class="contact-gif">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Enlaces Rápidos</h3>
+                    <p><a href="index.html">Inicio</a></p>
+                    <p><a href="galeria.html">Galería</a></p>
+                    <p><a href="index.html#universidad">Universidad UCSP</a></p>
+                </div>
+                <div class="footer-credits">
+                    <p>© <span id="current-year">2025</span> - Desarrollado con la sabiduría de Shrek</p>
+                    <p class="visitor-counter">Visitas: <span id="contador">0</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>    <script src="./js/script.js"></script>
+    <script src="./js/contact.js"></script>
+    <script src="./js/seo.js"></script>
+    <script src="./js/sounds.js"></script>
+</body>
+</html>
