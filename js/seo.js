@@ -4,6 +4,14 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    //mejoras de SEO
+    setTimeout(() => {
+        addStructuredData();
+        enhanceMetaTags();
+        addVisitMetrics();
+        optimizeForSearch();
+    }, 1000);
+
     function addStructuredData() {        const nombreAmigo = document.getElementById('nombre-amigo')?.textContent || 'Brad Caleb Lopez';
         const nombreCompleto = document.getElementById('nombre-completo')?.textContent || 'Brad Caleb López Parizaca';
         const carrera = document.getElementById('carrera')?.textContent || 'Administración de Negocios';
@@ -136,7 +144,43 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Interacción registrada:', type, value);
     }
 
-    addStructuredData();
-    enhanceMetaTags();
-    setupInteractionTracking();
+    async function addVisitMetrics() {
+        try {
+            const response = await fetch('https://api.countapi.xyz/get/pagina-shrek-brad-ucsp/visits');
+            const data = await response.json();
+            const visitCount = data.value || 0;
+
+            addMetaTag('site:visits', visitCount.toString());
+            addMetaTag('site:popularity', visitCount > 100 ? 'high' : visitCount > 50 ? 'medium' : 'growing');
+            
+            console.log(`SEO: Sitio con ${visitCount} visitas registradas`);
+        } catch (error) {
+            console.error('Error al obtener métricas para SEO:', error);
+        }
+    }
+
+    function optimizeForSearch() {
+        const keywords = [
+            'Brad Caleb López Parizaca',
+            'UCSP',
+            'Universidad Católica San Pablo',
+            'Arequipa',
+            'Perú',
+            'Administración de Negocios',
+            'Estudiante universitario',
+            'Emprendimiento',
+            'Liderazgo estudiantil'
+        ];
+        
+        addMetaTag('keywords', keywords.join(', '));
+        addMetaTag('author', 'Brad Caleb López Parizaca');
+        addMetaTag('robots', 'index, follow');
+        addMetaTag('googlebot', 'index, follow');
+
+        const currentDescription = document.querySelector('meta[name="description"]')?.content || '';
+        if (currentDescription && !currentDescription.includes('visitado')) {
+            const enhancedDescription = currentDescription + ' Sitio visitado por estudiantes y profesionales interesados en administración de negocios.';
+            document.querySelector('meta[name="description"]').content = enhancedDescription;
+        }
+    }
 });

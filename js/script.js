@@ -7,58 +7,61 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     setupEasterEgg();
-    
-    function initVisitCounter() {
-        let visits = localStorage.getItem('shrek-page-visits');
-
-        if (!visits) {
-            visits = 1;
-        } else {
-            visits = parseInt(visits) + 1;
-        }
-
-        localStorage.setItem('shrek-page-visits', visits);
-        
+      async function initVisitCounter() {
         const contadorElement = document.getElementById('contador');
-        contadorElement.textContent = visits;
+        
+        try {
+            const response = await fetch('https://api.countapi.xyz/hit/pagina-shrek-brad-ucsp/visits');
+            const data = await response.json();
+            
+            if (data && data.value) {
+                contadorElement.textContent = data.value;
+                console.log('Contador global actualizado:', data.value);
+            } else {
+                throw new Error('Respuesta inválida de CountAPI');
+            }
+            
+        } catch (error) {
+            console.error('Error al obtener contador global:', error);
+
+            let visits = localStorage.getItem('shrek-page-visits');
+            if (!visits) {
+                visits = 1;
+            } else {
+                visits = parseInt(visits) + 1;
+            }
+            localStorage.setItem('shrek-page-visits', visits);
+            contadorElement.textContent = visits + ' (local)';
+        }
 
         setTimeout(() => {
             contadorElement.classList.add('animate');
-
             setTimeout(() => {
                 contadorElement.classList.remove('animate');
             }, 500);
         }, 1000);
 
         registerVisit();
-    }
-
-    function registerVisit() {
-
+    }    async function registerVisit() {
         const visitData = {
             timestamp: new Date().toISOString(),
             page: window.location.pathname,
             referrer: document.referrer || 'direct',
-            userAgent: navigator.userAgent
+            userAgent: navigator.userAgent.substring(0, 100) 
         };
         
         console.log('Registrando visita:', visitData);
 
         trackPageVisit(window.location.pathname);
-        
-        // En una implementación real, se enviaría mediante fetch:
-        /*
-        fetch('https://tu-servidor.com/api/register-visit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(visitData)
-        })
-        .then(response => response.json())
-        .then(data => console.log('Visita registrada:', data))
-        .catch(error => console.error('Error al registrar visita:', error));
-        */
+
+        try {
+            const pageName = window.location.pathname.replace(/\.html$/, '').replace(/^\/+/, '') || 'home';
+            const pageCountResponse = await fetch(`https://api.countapi.xyz/hit/pagina-shrek-brad-ucsp/${pageName}`);
+            const pageCountData = await pageCountResponse.json();
+            console.log(`Página ${pageName} visitada ${pageCountData.value} veces`);
+        } catch (error) {
+            console.error('Error al registrar visita por página:', error);
+        }
     }
 
     function trackPageVisit(page) {
@@ -142,4 +145,26 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('shrek-mode');
         }, 5000);
     }
+
+    async function getVisitStats() {
+        try {
+            const response = await fetch('https://api.countapi.xyz/get/pagina-shrek-brad-ucsp/visits');
+            const data = await response.json();
+            return data.value || 0;
+        } catch (error) {
+            console.error('Error al obtener estadísticas:', error);
+            return 0;
+        }
+    }
+
+    async function showStats() {
+        const totalVisits = await getVisitStats();
+        console.log(`📊 Estadísticas del sitio:
+        Total de visitas: ${totalVisits}
+        Página actual: ${window.location.pathname}
+        Referrer: ${document.referrer || 'Directo'}
+        Timestamp: ${new Date().toLocaleString()}`);
+    }
+
+    setTimeout(showStats, 2000);
 });

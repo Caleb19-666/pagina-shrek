@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://caleb19-666.github.io/pagina-shrek/sitemap.xml
+
+# Páginas principales
+Allow: /index.html
+Allow: /cv.html
+Allow: /galeria.html
+Allow: /contacto.html
+
+# Recursos estáticos
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Información del sitio
+# Sitio web personal de Brad Caleb López Parizaca
+# Estudiante de Administración de Negocios - UCSP Arequipa, Perú
+# Última actualización: Mayo 2025
