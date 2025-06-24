@@ -232,4 +232,43 @@ document.addEventListener('DOMContentLoaded', function() {
             return null;
         }
     };
+
+    // Menú hamburguesa para móviles
+    function toggleMobileMenu() {
+        const nav = document.querySelector('.navigation ul');
+        const burger = document.getElementById('burger-menu');
+        if (nav.classList.contains('show-mobile-menu')) {
+            nav.classList.remove('show-mobile-menu');
+            burger.classList.remove('open');
+            // Esperar la transición antes de ocultar
+            nav.classList.add('hiding');
+            setTimeout(() => {
+                nav.classList.remove('hiding');
+            }, 350);
+        } else {
+            nav.classList.add('show-mobile-menu');
+            burger.classList.add('open');
+        }
+    }
+
+    const burger = document.getElementById('burger-menu');
+    if (burger) {
+        burger.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.navigation a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            const nav = document.querySelector('.navigation ul');
+            const burger = document.getElementById('burger-menu');
+            if (nav.classList.contains('show-mobile-menu')) {
+                nav.classList.remove('show-mobile-menu');
+                burger.classList.remove('open');
+                nav.classList.add('hiding');
+                setTimeout(() => {
+                    nav.classList.remove('hiding');
+                }, 350);
+            }
+        });
+    });
 });
